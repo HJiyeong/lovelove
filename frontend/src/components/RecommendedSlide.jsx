@@ -1,23 +1,37 @@
 import React, { useEffect, useState } from "react";
 
-const recommendedData = [
+const quotes = [
     {
-        type: "직무 추천",
-        title: "데이터 사이언티스트",
-        description: "데이터를 분석해 의미 있는 인사이트를 찾고, 기업의 의사결정을 돕는 전문가예요!",
-        image: "/data.png"
+        author: "알버트 아인슈타인",
+        content: "만유인력은 사랑에 빠진 사람을 책임지지 않는다."
     },
     {
-        type: "학과 추천",
-        title: "컴퓨터과학과",
-        description: "코딩, 알고리즘, 인공지능까지! 디지털 세상의 중심을 배우는 학과예요.",
-        image: "/computer.png"
+        author: "알프레드 테니슨",
+        content: "사랑해서 사랑을 잃은 것은 전혀 사랑하지 않는 것보다 낫다."
     },
     {
-        type: "직무 추천",
-        title: "시스템엔지니어",
-        description: "IT 시스템이 문제없이 돌아가도록 설계하고 관리하는 숨은 핵심 역할이에요!",
-        image: "/system.png"
+        author: "서머셋",
+        content: "중요한 것은 사랑을 받는 것이 아니라 사랑을 하는 것이다."
+    },
+    {
+        author: "헨리 데이빗 소로우",
+        content: "사랑에 의한 상처는 더 많이 사랑함으로써 치유된다."
+    },
+    {
+        author: "벤저민 프랭클린",
+        content: "사랑받고 싶다면 사랑하라. 그리고 사랑스럽게 행동하라."
+    },
+    {
+        author: "괴테",
+        content: "아무리 큰 공간일지라도 설사 그것이 하늘과 땅 사이라 할지라도 사랑의 힘으로 메꿀 수 있다."
+    },
+    {
+        author: "카렌 선드",
+        content: "사랑하는 것은 천국을 살짝 엿보는 것이다."
+    },
+    {
+        author: "세르반테스",
+        content: "사랑을 품을 때 삶은 진정한 의미를 되찾는다."
     }
 ];
 
@@ -26,41 +40,23 @@ function RecommendedSlide() {
 
     useEffect(() => {
         const timer = setInterval(() => {
-            setIndex((prev) => (prev + 1) % recommendedData.length);
-        }, 2000);
+            setIndex((prev) => (prev + 1) % quotes.length);
+        }, 4000); // 약간 여유 있게
         return () => clearInterval(timer);
     }, []);
 
-    const current = recommendedData[index];
+    const current = quotes[index];
 
     return (
-        <div className="w-80 bg-white rounded-xl shadow-xl p-5 border border-purple-100 transition-all duration-500">
-            <div className="flex items-center mb-2">
-                <img src="/img_1.png" alt="Curby" className="w-10 h-10 mr-2" />
-                <div>
-                    <p className="text-xs text-gray-400">{current.type}</p>
-                    <h3 className="text-md font-bold text-purple-700">{current.title}</h3>
-                </div>
-            </div>
-
-            {/* 사용자 하드코딩 멘트 */}
-            <p className="text-sm text-gray-600 mb-1">
-                <span className="font-semibold text-purple-700">김교육</span>님께 추천드리는 {current.type === "학과 추천" ? "학과" : "직무"}예요!
+        <div className="w-80 bg-white rounded-xl shadow-lg px-6 py-8 border border-purple-100 text-center transition-all duration-500">
+            <p className="text-lg font-medium text-gray-700 leading-relaxed mb-4 whitespace-pre-line">
+                “{current.content}”
             </p>
-
-            {/* 설명 */}
-            <p className="text-sm text-gray-500 mb-3">{current.description}</p>
-
-            {/* 이미지 */}
-            <img
-                src={current.image}
-                alt={current.title}
-                className="w-full h-32 object-contain rounded-md"
-            />
+            <p className="text-sm text-gray-500 font-semibold">- {current.author}</p>
 
             {/* 인디케이터 */}
-            <div className="mt-3 flex justify-center gap-2">
-                {recommendedData.map((_, i) => (
+            <div className="mt-4 flex justify-center gap-2">
+                {quotes.map((_, i) => (
                     <div
                         key={i}
                         className={`w-2 h-2 rounded-full ${i === index ? 'bg-purple-600' : 'bg-gray-300'}`}
