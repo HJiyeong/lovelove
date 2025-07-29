@@ -43,7 +43,7 @@ public class OpenAiService {
 
         /* (2) 요청 본문 */
         Map<String, Object> body = Map.of(
-                "model", "gpt-4o-mini",            // 필요 시 다른 모델로 교체
+                "model", "gpt-4.1-nano",            // 필요 시 다른 모델로 교체
                 "messages", messages
         );
 
