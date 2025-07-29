@@ -13,7 +13,7 @@ function Home() {
             {[
               { to: "/", label: "메인" },
               { to: "/search", label: "진로 검색" },
-              { to: "/dictionary", label: "진로 백과사전" },
+              { to: "/dateplace", label: "진로 백과사전" },
               { to: "/calendar", label: "진로 캘린더" },
               { to: "/settings", label: "설정" },
               { to: "/logout", label: "로그아웃" },
@@ -63,7 +63,7 @@ function Home() {
 
         {/* 메인 카드 섹션 */}
         <section className="grid grid-cols-3 gap-6 mb-12">
-          <Link to="/dictionary">
+          <Link to="/dateplace">
             <div className="bg-gradient-to-r from-purple-400 to-pink-400 p-6 rounded-xl shadow-md text-black font-bold text-xl hover:scale-105 transition cursor-pointer">
               커리어 백과사전
               <div className="text-right text-2xl">🤍</div>

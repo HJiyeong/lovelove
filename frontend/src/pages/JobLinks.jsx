@@ -184,7 +184,7 @@ record RoadmapResponse(List<YearPlan> years){
                         {[
                             { label: "메인", path: "/" },
                             { label: "전공 검색", path: "/search" },
-                            { label: "진로 백과사전", path: "/dictionary" },
+                            { label: "진로 백과사전", path: "/dateplace" },
                             { label: "진로 캘린더", path: "/calendar" },
                             { label: "설정", path: "/settings" },
                             { label: "로그아웃", path: "/logout" },
@@ -218,7 +218,7 @@ record RoadmapResponse(List<YearPlan> years){
                     <h1 className="text-xl font-bold text-purple-700"> 맞춤형 진로 로드맵</h1>
                     <nav className="flex gap-6 text-sm font-medium">
                         <Link to="/test" className="text-gray-600 hover:text-purple-600">적성검사</Link>
-                        <Link to="/dictionary" className="text-gray-600 hover:text-purple-600">커리어 백과사전</Link>
+                        <Link to="/dateplace" className="text-gray-600 hover:text-purple-600">커리어 백과사전</Link>
                         <Link to="/milestone" className="text-gray-600 hover:text-purple-600">마일스톤</Link>
                         <Link to="/chat" className="px-4 py-2 rounded-full bg-purple-600 text-black shadow hover:bg-purple-700 whitespace-nowrap">💬 AI커비와 상담하기</Link>
                     </nav>

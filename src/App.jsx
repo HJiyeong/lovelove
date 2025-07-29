@@ -8,7 +8,7 @@ import MyPageDetail from "./pages/MyPageDetail";
 import JobLinks from "./pages/JobLinks";
 import Diagnosis from "./pages/Diagnosis";
 import Activities from "./pages/Activities";
-import CareerDictionary from "./pages/CareerDictionary";
+import Careerdateplace from "./pages/Careerdateplace";
 import SearchPage from "./pages/SearchPage";
 import CalendarPage from "./pages/CalendarPage"; 
 
@@ -24,7 +24,7 @@ function App() {
       <Route path="/job-links" element={<JobLinks />} />
       <Route path="/diagnosis" element={<Diagnosis />} />
       <Route path="/activities" element={<Activities />} />
-      <Route path="/dictionary" element={<CareerDictionary />} />
+      <Route path="/dateplace" element={<Careerdateplace />} />
       <Route path="/search" element={<SearchPage />} />
       <Route path="/calendar" element={<CalendarPage />} /> 
     </Routes>

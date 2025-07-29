@@ -113,7 +113,7 @@ const chartData = {
               {["메인","전공 검색","진로 백과사전","진로 캘린더","설정","로그아웃"].map((label, idx) => (
                   <Link
                       key={idx}
-                      to={["/","/search","/dictionary","/calendar","/settings","/logout"][idx]}
+                      to={["/","/search","/dateplace","/calendar","/settings","/logout"][idx]}
                       className="rounded-xl px-4 py-2 text-left hover:bg-white/10 transition cursor-pointer flex items-center gap-3 font-medium text-black"
                   >
                     {label}
@@ -163,7 +163,7 @@ const chartData = {
             <nav className="flex items-center gap-6 text-sm font-medium justify-self-end">
               {[
                 ["적성검사", "/test"],
-                ["커리어&nbsp;백과사전", "/dictionary"],
+                ["커리어&nbsp;백과사전", "/dateplace"],
                 ["마일스톤", "/milestone"],
               ].map(([label, path]) => (
                   <Link
@@ -284,7 +284,7 @@ const chartData = {
                     <article key={jobCd} className="bg-white border border-gray-200 rounded-2xl shadow-sm p-6 hover:shadow-lg transition">
                       <header className="flex justify-between items-center mb-2">
                         <h5 className="text-lg font-semibold text-purple-700">{jobNm}</h5>
-                        <button onClick={()=>navigate(`/dictionary?jobCd=${jobCd}`)}
+                        <button onClick={()=>navigate(`/dateplace?jobCd=${jobCd}`)}
                                 className="text-sm text-blue-600 hover:underline">자세히 →</button>
                       </header>
                       <p className="text-sm text-gray-600 line-clamp-4">{jobWork}</p>

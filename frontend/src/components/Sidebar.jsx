@@ -36,7 +36,7 @@ function Sidebar() {
           {["메인", "연애 고수의 조언", "데이트 장소", "나의 다이어리", "설정", "로그아웃"].map((label, idx) => (
             <Link
               key={idx}
-              to={['/', '/search', '/dictionary', '/calendar', '/settings', '/logout'][idx]}
+              to={['/', '/search', '/dateplace', '/calendar', '/settings', '/logout'][idx]}
               className="rounded-xl px-4 py-2 text-left hover:bg-white/10 transition cursor-pointer flex items-center gap-3 font-medium text-black"
             >
               {label}

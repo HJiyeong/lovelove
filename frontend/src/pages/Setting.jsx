@@ -26,7 +26,7 @@ export default function Setting() {
                         {["메인", "전공 검색", "진로 백과사전", "진로 캘린더", "설정", "로그아웃"].map((label, idx) => (
                             <Link
                                 key={idx}
-                                to={["/", "/search", "/dictionary", "/calendar", "/settings", "/logout"][idx]}
+                                to={["/", "/search", "/dateplace", "/calendar", "/settings", "/logout"][idx]}
                                 className="rounded-xl px-4 py-2 text-left hover:bg-black/10 transition cursor-pointer flex items-center gap-3 font-medium text-black text-lg"
                             >
                                 {label}
@@ -50,7 +50,7 @@ export default function Setting() {
                     </div>
                     <nav className="flex items-center gap-6 text-sm font-medium justify-self-end">
                         <Link to="/test" className="text-gray-600 hover:text-purple-600">적성검사</Link>
-                        <Link to="/dictionary" className="text-gray-600 hover:text-purple-600">커리어 백과사전</Link>
+                        <Link to="/dateplace" className="text-gray-600 hover:text-purple-600">커리어 백과사전</Link>
                         <Link to="/milestone" className="text-gray-600 hover:text-purple-600">마일스톤</Link>
                         <Link to="/chat" className="px-4 py-2 rounded-full bg-purple-600 text-black hover:bg-purple-700">
                             💬 AI커비와 상담하기

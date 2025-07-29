@@ -71,7 +71,7 @@ function ResumeEditor() {
                             <button
                                 key={idx}
                                 onClick={() =>
-                                    navigate(["/", "/search", "/dictionary", "/calendar", "/settings", "/logout"][idx])
+                                    navigate(["/", "/search", "/dateplace", "/calendar", "/settings", "/logout"][idx])
                                 }
                                 className="rounded-xl px-4 py-2 text-left hover:bg-white/10 transition cursor-pointer flex items-center gap-3 font-medium text-black"
                             >

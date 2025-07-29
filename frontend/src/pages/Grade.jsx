@@ -236,7 +236,7 @@ function Grade() {
                         {[
                             { label: "메인", path: "/" },
                             { label: "전공 검색", path: "/search" },
-                            { label: "진로 백과사전", path: "/dictionary" },
+                            { label: "진로 백과사전", path: "/dateplace" },
                             { label: "진로 캘린더", path: "/calendar" },
                             { label: "설정", path: "/settings" },
                             { label: "로그아웃", path: "/logout" },
@@ -271,7 +271,7 @@ function Grade() {
                     <nav className="flex items-center gap-6 text-sm font-medium justify-self-end">
                         {[
                             ["적성검사", "/test"],
-                            ["커리어&nbsp;백과사전", "/dictionary"],
+                            ["커리어&nbsp;백과사전", "/dateplace"],
                             ["마일스톤", "/milestone"],
                         ].map(([label, path]) => (
                             <Link

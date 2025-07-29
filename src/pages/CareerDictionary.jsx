@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function CareerDictionary() {
+function Careerdateplace() {
   const careers = [
     { job: "프론트엔드 개발자", major: "컴퓨터공학과" },
     { job: "AI 연구원", major: "인공지능학과" },
@@ -50,5 +50,5 @@ function CareerDictionary() {
   );
 }
 
-export default CareerDictionary;
+export default Careerdateplace;
 

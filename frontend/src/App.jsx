@@ -4,6 +4,9 @@ import Milestone from "./pages/Milestone";
 import TestPage from "./pages/TestPage"; 
 import TestResult from './pages/TestResult';
 import TestIntro from './pages/Testintro';
+import PlacesMap from "./components/PlacesMap"; 
+import CareerDictionary from "./pages/CareerDictionary";
+import Dateplace from "./pages/Dateplace.jsx";
 
 import Analytics from "./pages/Analytics";
 import Chat from "./pages/Chat.jsx";
@@ -11,7 +14,7 @@ import MyPageDetail from "./pages/MyPageDetail";
 import JobLinks from "./pages/JobLinks";
 import Diagnosis from "./pages/Diagnosis";
 import Activities from "./pages/Activities";
-import CareerDictionary from "./pages/CareerDictionary";
+
 import SearchPage from "./pages/SearchPage";
 import CalendarPage from "./pages/CalendarPage";
 
@@ -30,7 +33,9 @@ function App() {
       <Route path="/" element={<Home />} />
       <Route path="/testintro" element={<TestIntro />} />
       <Route path="/test-result" element={<TestResult />} />
-       <Route path="/testpage" element={<TestPage />} />
+      <Route path="/testpage" element={<TestPage />} />
+      <Route path="/dictionary" element={<CareerDictionary />} />
+      <Route path="/dateplace" element={<Dateplace />} />
 
 
 
@@ -44,10 +49,11 @@ function App() {
       <Route path="/job-links" element={<JobLinks />} />
       <Route path="/diagnosis" element={<Diagnosis />} />
       <Route path="/activities" element={<Activities />} />
-      <Route path="/dictionary" element={<CareerDictionary />} />
+    
       <Route path="/search" element={<SearchPage />} />
       <Route path="/calendar" element={<CalendarPage />} />
       <Route path="/grade" element={<Grade />} />
+      <Route path="/places" element={<PlacesMap />} />
       
       
      
