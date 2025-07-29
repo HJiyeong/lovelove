@@ -109,18 +109,18 @@ function Chat() {
   };
 
   return (
-      <div className="flex min-h-screen bg-gradient-to-br from-purple-100 to-blue-100 font-sans relative">
+      <div className="flex min-h-screen bg-gradient-to-br from-pink-100 to-rose-200 font-sans relative">
         {/* 💬 히스토리 사이드바 */}
         {showHistory && (
             <div className="absolute top-0 left-64 w-64 h-full bg-white z-40 shadow-xl border-r border-gray-200 p-4 space-y-4 transition-all">
-              <h2 className="text-lg font-bold text-purple-700">📁 지난 대화</h2>
+              <h2 className="text-lg font-bold text-rose-700">📁 지난 대화</h2>
               {/* TODO: 세션 목록 API 연결 후 교체 */}
               {sessions.map(({ sessionId: sid, preview, updated }) => (
                   <div
                       key={sid}
                       onClick={() => switchSession(sid)}
                       className={`p-3 rounded-lg cursor-pointer text-sm
-                ${sid === sessionId ? "bg-purple-100" : "hover:bg-purple-50"}`}
+                ${sid === sessionId ? "bg-pink-100" : "hover:bg-pink-50"}`}
                   >
                     <p className="font-medium truncate">{preview}</p>
                     <p className="text-[11px] text-gray-400">{updated}</p>
@@ -166,14 +166,14 @@ function Chat() {
           <div className="h-14 bg-white z-50 border-b border-gray-200 px-6 flex items-center justify-between shadow sticky top-0">
             <button
                 onClick={() => setShowHistory(!showHistory)}
-                className="text-sm bg-purple-100 hover:bg-[#fff3ed] text-purple-700 font-semibold px-3 py-1 rounded-full"
+                className="text-sm bg-pink-100 hover:bg-[#fff3ed] text-pink-700 font-semibold px-3 py-1 rounded-full"
             >
               채팅 기록
             </button>
-            <h1 className="text-lg font-bold text-purple-700">AI 진로 상담 커비</h1>
+            <h1 className="text-lg font-bold text-pink-700">AI 진로 상담 커비</h1>
             <button
                 onClick={handleReset}
-                className="text-sm bg-purple-100 hover:bg-[#fff3ed] text-purple-700 font-semibold px-3 py-1 rounded-full"
+                className="text-sm bg-pink-100 hover:bg-[#fff3ed] text-pink-700 font-semibold px-3 py-1 rounded-full"
             >
               + 새 상담
             </button>
@@ -207,7 +207,7 @@ function Chat() {
                         className={`max-w-[70%] px-4 py-2 rounded-2xl text-sm whitespace-pre-line leading-relaxed ${
                             msg.type === "bot"
                                 ? "bg-white text-gray-800 rounded-bl-none"
-                                : "bg-purple-600 text-black rounded-br-none"
+                                : "bg-pink-600 text-black rounded-br-none"
                         }`}
                     >
                       {msg.text}
@@ -216,7 +216,7 @@ function Chat() {
               ))}
 
               {isTyping && (
-                  <div className="text-sm text-gray-400 italic ml-4">커비가 입력 중...</div>
+                  <div className="text-sm text-gray-400 italic ml-4">큐비가 입력 중...</div>
               )}
 
               {/* 🔚 스크롤 앵커 */}
@@ -241,7 +241,7 @@ function Chat() {
               />
               <button
                   onClick={handleSend}
-                  className="bg-purple-600 hover:bg-purple-700 text-black px-6 py-2 rounded-full font-semibold transition"
+                  className="bg-pink-600 hover:bg-pink-700 text-black px-6 py-2 rounded-full font-semibold transition"
               >
                 ➤
               </button>

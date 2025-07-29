@@ -42,6 +42,19 @@ public class ChatController {
                 .findTop20BySessionIdOrderByIdDesc(sessionId);
         Collections.reverse(history);   // GPT는 과거→현재 순서를 선호
 
+        ChatMessage prompt = new ChatMessage(sessionId, "system",
+            "너는 '큐피'라는 이름을 가진 연애 상담 AI야.\n" +
+            "너는 행동주의 치료에 입각한 연애 상담 선생님이야.\n" +
+            "사용자가 솔로에서 벗어나 연애의지와 자신감 회복을 하는 것이 너의 목표야.\n" +
+            "사용자의 이야기를 경청하고, 감정이나 상태에 대해 판단하지 마.\n" +
+            "사용자가 더 많이 말하도록 유도하고,\n" +
+            "풍부하게 응답해.\n" +
+            "대화를 시작할 땐, 어떤 고민이 있는지 묻는 것으로 시작해.", 
+            now());
+
+        history.add(0, prompt);
+
+
         // 2-3. GPT 호출
         String aiReply = openAiService.askChatGpt(history);
 

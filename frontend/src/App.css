@@ -1,0 +1,54 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}
+
+.btn { @apply bg-purple-600 hover:bg-purple-700 text-white font-semibold px-4 py-1 rounded; }
+@layer utilities {
+  .glass-card { @apply bg-white/80 backdrop-blur-md rounded-2xl p-6 shadow
+                        w-full max-w-xl; }
+  .select-field { @apply bg-white/70 backdrop-blur-sm rounded-xl px-3 py-2 shadow
+                           focus:outline-none focus:ring-2 focus:ring-[#e37571]/60; }
+  .action-btn { @apply flex items-center justify-center flex-1
+                        bg-gradient-to-r from-[#e37571] to-[#b8baed]
+                        text-white font-semibold py-2 rounded-xl shadow
+                        hover:opacity-90 transition disabled:opacity-40; }
+}

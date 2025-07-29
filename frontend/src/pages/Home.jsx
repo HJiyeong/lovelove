@@ -2,6 +2,7 @@
 import React, { useEffect, useRef, useState  } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import RecommendedSlide from "../components/RecommendedSlide";
+import Sidebar from "../components/Sidebar";
 
 import { Line } from "react-chartjs-2";
 import {
@@ -190,68 +191,7 @@ function Home() {
   return (
       <div className="flex min-h-screen bg-[#f9fafb] font-sans relative">
         {/* Sidebar */}
-        <aside className="w-64 bg-gradient-to-b from-[#f7dee2] via-[#f1e0e2] to-[#ffeded] p-5 shadow-xl text-black flex flex-col justify-between p-6 rounded-tr-3xl rounded-br-3xltify-between p-6 rounded-tr-3xl rounded-br-3xl">
-
-        <div>
-          <div className="flex items-center gap-3 animate-fadeInOut">
-          {/* 작은 이미지 */}
-          <img src="/img_5.png" alt="Logo" className="w-[3.8rem] h-[3.8rem] object-contain" />
-
-          {/* 그라데이션 텍스트 */}
-          <h1 className="text-6xl font-extrabold bg-gradient-to-r from-[#e37571] via-[#e37571] to-[#b8baed] text-transparent bg-clip-text drop-shadow-md">
-            꼬셔조
-          </h1>
-        </div>
-            {/* 슬로건 / 철학 문구 */}
-            <div className="text-[14px] text-black text-left leading-snug px-3 py-1 mb-6 space-y-2">
-              <div>
-                <p className="font-semibold text-black mb-1"> 연애는 기술이 아니라 관계입니다.</p>
-                <p className="text-black/80">
-                  <span className="text-black">그래서 우리는 조언보다 먼저 <br /> 당신의 이야기를</span> 듣는 것부터 시작합니다.
-                </p>
-              </div>
-              <div className="pt-2 border-t border-white/20">
-                <p className="text-black font-semibold mt-2">
-                  방향만 알려주는 네비가 아닙니다.<br /></p>
-                  <p className="text-black/80"> 길을 같이 걸어주는 <span className="text-[#d66d69] font-semibold">큐피(Qupy)</span>입니다. </p>
-  
-              </div>
-            </div>
-
-
-            <nav className="flex flex-col gap-3">
-              {["메인", "연애 고수의 조언", "데이트 장소", "나의 다이어리", "설정", "로그아웃"].map((label, idx) => (
-                  <Link
-                      key={idx}
-                      to={['/', '/search', '/dictionary', '/calendar', '/settings', '/logout'][idx]}
-                      className="rounded-xl px-4 py-2 text-left hover:bg-white/10 transition cursor-pointer flex items-center gap-3 font-medium text-black"
-                  >
-                    {label}
-                  </Link>
-              ))}
-            </nav>
-          </div>
-
-          <div className="mt-10 bg-white/10 backdrop-blur-sm p-5 rounded-2xl shadow-lg text-black space-y-3 border border-white/20">
-
-            <h3 className="text-sm font-semibold flex items-center gap-2">
-              👨‍💻 <span className="text-base font-bold">TEAM 잡스케치 (JobSketch)</span>
-            </h3>
-
-            <p className="text-xs leading-relaxed text-black/90">
-              잡스케치(JobSketch)는 진로를 설계하고 싶은 학생들을 위해,
-              <span className="block mt-1">AI와 공공데이터를 활용한 <strong className="text-[#fff3ed] font-medium">진짜 ‘진로 설계 도구’</strong>를 만들기 위해 시작된 팀입니다.</span>
-            </p>
-
-            <div className="border-t border-white/20 pt-3 text-xs leading-relaxed text-black/80">
-              ‘Job을 스케치한다’, 동시에 ‘잡(Job)을 캐치(Catch)한다’는 이중적인 의미를 담은 이름처럼,
-              <span className="block mt-1">우리는 학생들이 자신의 미래를 <strong className="text-[#fff3ed] font-medium">직접 그리고, 정확히 잡을 수 있도록</strong> 돕고자 합니다.</span>
-            </div>
-          </div>
-
-
-        </aside>
-
+        <Sidebar />
         {/* Main Content */}
         <main className="flex-1 p-10">
 

@@ -96,7 +96,7 @@ function Activities() {
         transition transform whitespace-nowrap
       "
               >
-                💬 AI커비와&nbsp;상담하기
+                💬 AI큐비와&nbsp;상담하기
               </Link>
             </nav>
           </header>
