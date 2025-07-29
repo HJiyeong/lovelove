@@ -36,7 +36,7 @@ function Home() {
     } else if (term.includes("마이페이지")) {
       navigate("/mypage-detail");
     } else if (term.includes("검사") || term.includes("테스트")) {
-      navigate("/test");
+      navigate("/testpage");
     } else {
       navigate("/search");
     }
@@ -275,7 +275,7 @@ function Home() {
           {/* 기능 카드 - 진단 / 탐색 / 실천 */}
           <section className="grid grid-cols-3 gap-6 mb-16">
             {[
-              { badge: '💘 진단', label: '연애 성향을 확인해봐요', to: '/test', color: 'from-[#e5d4f3] to-[#d4c1f4]', img: '/test.png', },
+              { badge: '💘 진단', label: '연애 성향을 확인해봐요', to: '/testintro', color: 'from-[#e5d4f3] to-[#d4c1f4]', img: '/test.png', },
               { badge: '🫶 분석', label: '우리 대화를 들여다봐요', to: '/dictionary', color: 'from-[#f8d7e2] to-[#dfb7d8]', img: '/book.png' },
               { badge: '🎀 추천', label: '어울리는 스타일을 찾아봐요', to: '/milestone', color: 'from-[#d9e7f6] to-[#c1d4f0]', img: '/stop.png' }
             ].map(({ badge, label, to, color, img }) => (

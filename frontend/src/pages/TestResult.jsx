@@ -1,80 +1,69 @@
-import React from 'react';
-import { useLocation, Link } from 'react-router-dom';
+import { useSearchParams, useNavigate } from "react-router-dom";
+import { personalityTypes } from "../data/personalityTypes";
+import PersonalityCard from "../components/PersonalityCard";
+import html2canvas from "html2canvas";
+import { useRef } from "react";
 
-function TestResult() {
-    const location = useLocation();
-    const result = location.state?.result;
+const TestResult = () => {
+  const [searchParams] = useSearchParams();
+  const navigate = useNavigate();
+  const type = searchParams.get("type");
+  const typeData = personalityTypes[type];
+  const cardRef = useRef(null); // ✅ 카드에만 ref 적용
 
-    if (!result) {
-        return <div className="p-10 text-center text-red-500">결과를 불러올 수 없습니다.</div>;
-    }
+  const handleGoHome = () => navigate("/");
+  const handleRetry = () => navigate("/testpage");
 
-    return (
-        <div className="flex min-h-screen font-sans">
-            {/* 🌙 사이드바 */}
-            <aside className="w-64 bg-gradient-to-b from-[#f7dee2] via-[#f1e0e2] to-[#ffeded] text-black flex flex-col justify-between p-6 rounded-tr-3xl rounded-br-3xl">
-                <div>
-                    <div className="p-3 mb-10 pl-0">
-                        <img src="/img_5.png" alt="CareerNavi Logo" className="h-15 object-contain" />
-                    </div>
-                    <nav className="flex flex-col gap-3">
-                        {["메인", "전공 검색", "진로 백과사전", "진로 캘린더", "설정", "로그아웃"].map((label, idx) => (
-                            <Link
-                                key={idx}
-                                to={["/", "/search", "/dictionary", "/calendar", "/settings", "/logout"][idx]}
-                                className="rounded-xl px-4 py-2 text-left hover:bg-black/10 transition cursor-pointer flex items-center gap-3 font-medium text-black text-lg text-lg"
-                            >
-                                {label}
-                            </Link>
-                        ))}
-                    </nav>
-                </div>
-            </aside>
+  const handleDownloadImage = async () => {
+    if (!cardRef.current) return;
 
-            {/* 🌞 메인 */}
-            <div className="flex-1 relative bg-gradient-to-br from-purple-100 to-indigo-100 pt-24 px-6 pb-20">
-                {/* 상단바 */}
-                <header className="fixed top-0 left-64 right-0 h-20 px-8 bg-white/60 backdrop-blur-lg border-b border-white/20 shadow z-50 grid grid-cols-[auto_1fr_auto] items-center">
-                    <h1 className="text-xl font-bold text-gray-800 whitespace-nowrap">검사 결과</h1>
-                    <div className="justify-self-center">
-                        <Link to="/" className="block">
-                            <span className="text-2xl font-extrabold bg-gradient-to-r from-purple-600 to-pink-500 bg-clip-text text-transparent">
-                                CareerNavi
-                            </span>
-                        </Link>
-                    </div>
-                    <nav className="flex items-center gap-6 text-sm font-medium justify-self-end">
-                        <Link to="/test" className="text-gray-600 hover:text-purple-600">검사 선택</Link>
-                        <Link to="/dictionary" className="text-gray-600 hover:text-purple-600">커리어 백과사전</Link>
-                        <Link to="/chat" className="px-4 py-2 rounded-full bg-purple-600 text-black hover:bg-purple-700">
-                            💬 AI커비와 상담하기
-                        </Link>
-                    </nav>
-                </header>
+    const canvas = await html2canvas(cardRef.current, {
+      scale: 1.3,         // ✅ 이미지 품질 향상
+      useCORS: true,
+      backgroundColor: null, // ✅ 배경 투명하게 (필요 시)
+    });
 
-                {/* 본문 */}
-                <div className="mt-20 flex flex-col items-center justify-center px-6">
-                    <div className="bg-white rounded-xl shadow-xl p-10 w-full max-w-2xl text-center">
-                        <h1 className="text-2xl font-bold mb-4">🎯 검사 결과</h1>
-                        <p className="mb-6">아래 버튼을 눌러 커리어넷 공식 결과 페이지로 이동하세요.</p>
-                        <a
-                            href={result.url}
-                            target="_blank"
-                            rel="noopener noreferrer"
-                            className="inline-block bg-purple-500 hover:bg-purple-600 text-black font-semibold px-6 py-3 rounded-xl transition"
-                        >
-                            🔗 결과 보기
-                        </a>
-                        <div className="mt-4">
-                            <Link to="/test" className="text-sm text-blue-500 underline">
-                                ← 검사 선택 화면으로 돌아가기
-                            </Link>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    );
-}
+    const dataUrl = canvas.toDataURL("image/png");
+    const link = document.createElement("a");
+    link.href = dataUrl;
+    link.download = `연애성향_${type}.png`;
+    link.click();
+  };
+
+  return (
+    <div className="min-h-screen bg-gradient-to-r from-[#feeaff] via-[#ebd0f2] to-[#d4c1f4] px-4 py-10 flex flex-col items-center">
+      
+      {/* ✅ PersonalityCard만 감싼 캡처 영역 */}
+      <div
+        ref={cardRef}
+        className="mt-12 bg-white rounded-3xl shadow-xl"
+      >
+        <PersonalityCard typeData={typeData} />
+      </div>
+
+      {/* 버튼들 */}
+      <div className="mt-8 flex flex-col sm:flex-row gap-4 items-center justify-center mb-8">
+        <button
+          onClick={handleGoHome}
+          className="bg-white text-[#8b495a] font-semibold px-6 py-3 rounded-full shadow-md hover:bg-pink-100 transition"
+        >
+          메인화면으로
+        </button>
+        <button
+          onClick={handleRetry}
+          className="bg-white text-[#8b495a] font-semibold px-6 py-3 rounded-full shadow-md hover:bg-pink-100 transition"
+        >
+          다시 테스트하기
+        </button>
+        <button
+          onClick={handleDownloadImage}
+          className="bg-green-200 text-[#2f3e2f] font-semibold px-6 py-3 rounded-full shadow-md hover:bg-green-300 transition"
+        >
+          결과 이미지로 저장하기
+        </button>
+      </div>
+    </div>
+  );
+};
 
 export default TestResult;
