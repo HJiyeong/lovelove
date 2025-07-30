@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import Sidebar from "../components/Sidebar";
 
 function SearchPage() {
   const [data, setData] = useState([]);
@@ -19,27 +20,7 @@ function SearchPage() {
   return (
     <div className="flex min-h-screen font-sans">
       {/* Sidebar */}
-      <aside className="w-64 bg-gradient-to-b from-[#f7dee2] via-[#f1e0e2] to-[#ffeded] p-6 shadow-xl text-black flex flex-col justify-between rounded-tr-3xl rounded-br-3xl">
-        <div>
-          <div className="flex items-center gap-3">
-            <img src="/img_5.png" alt="Logo" className="w-14 h-14 object-contain" />
-            <h1 className="text-4xl font-extrabold bg-gradient-to-r from-[#e37571] to-[#b8baed] text-transparent bg-clip-text drop-shadow-md">
-              꼬셔조
-            </h1>
-          </div>
-          <nav className="flex flex-col gap-3 mt-6">
-            {["메인", "연애 고수의 조언", "데이트 장소", "나의 다이어리", "설정", "로그아웃"].map((label, idx) => (
-              <Link
-                key={idx}
-                to={["/", "/search", "/dateplace", "/calendar", "/settings", "/logout"][idx]}
-                className="rounded-xl px-4 py-2 text-left hover:bg-white/40 transition cursor-pointer flex items-center gap-3 font-medium text-black"
-              >
-                {label}
-              </Link>
-            ))}
-          </nav>
-        </div>
-      </aside>
+      <Sidebar />
 
       {/* Main Content */}
       <main className="flex-1 bg-white py-20 px-10">

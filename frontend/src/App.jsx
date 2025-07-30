@@ -7,6 +7,8 @@ import TestIntro from './pages/Testintro';
 import PlacesMap from "./components/PlacesMap"; 
 import CareerDictionary from "./pages/CareerDictionary";
 import Dateplace from "./pages/Dateplace.jsx";
+import { LoadScript } from "@react-google-maps/api"; // 구글 맵 로드 지연 줄이기 위해
+
 
 import Analytics from "./pages/Analytics";
 import Chat from "./pages/Chat.jsx";
@@ -29,13 +31,15 @@ import Logout from "./pages/Logout" ;
 
 function App() {
   return (
+    <LoadScript googleMapsApiKey="AIzaSyC8fdcd_-n3LoGfb1l5AUj0X8W6I2L2G18">
     <Routes>
+      <Route path="/dateplace" element={<Dateplace />} />
       <Route path="/" element={<Home />} />
       <Route path="/testintro" element={<TestIntro />} />
       <Route path="/test-result" element={<TestResult />} />
       <Route path="/testpage" element={<TestPage />} />
       <Route path="/dictionary" element={<CareerDictionary />} />
-      <Route path="/dateplace" element={<Dateplace />} />
+      
 
 
 
@@ -56,8 +60,9 @@ function App() {
       <Route path="/places" element={<PlacesMap />} />
       
       
-     
+
     </Routes>
+    </LoadScript>
   );
 }
 
