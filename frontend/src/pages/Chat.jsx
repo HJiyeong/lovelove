@@ -133,28 +133,6 @@ function Chat() {
             </div>
         )}
 
-        {/* 🟣 CareerNavi 사이드바 */}
-        <aside className="w-64 bg-gradient-to-b from-[#f7dee2] via-[#ffeded] to-white text-black flex flex-col justify-between p-6 rounded-tr-3xl rounded-br-3xl">
-          <div>
-            <div className="p-3 mb-10 flex items-start justify-start pl-0">
-              <img src="/img_5.png" alt="CareerNavi Logo" className="h-15 object-contain" />
-            </div>
-
-            <nav className="flex flex-col gap-3">
-              {["메인", "전공 검색", "진로 백과사전", "진로 캘린더", "설정", "로그아웃"].map(
-                  (label, idx) => (
-                      <Link
-                          key={idx}
-                          to={["/", "/search", "/dateplace", "/calendar", "/settings", "/logout"][idx]}
-                          className="rounded-xl px-4 py-2 text-left hover:bg-white/10 transition cursor-pointer flex items-center gap-3 font-medium text-black"
-                      >
-                        {label}
-                      </Link>
-                  )
-              )}
-            </nav>
-          </div>
-        </aside>
 
         {/* 💬 메인 채팅 영역 */}
         <main

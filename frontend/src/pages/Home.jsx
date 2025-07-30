@@ -190,8 +190,6 @@ function Home() {
 
   return (
       <div className="flex min-h-screen bg-[#f9fafb] font-sans relative">
-        {/* Sidebar */}
-        <Sidebar />
         {/* Main Content */}
         <main className="flex-1 p-10">
 

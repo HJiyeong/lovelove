@@ -114,8 +114,6 @@ export default function StyleCam() {
   /* ────────── UI ────────── */
   return (
     <div className="flex h-screen overflow-hidden">
-      {/* 좌측 사이드바 */}
-      <Sidebar />
 
       {/* 우측 메인 */}
       <section className="flex-1 flex flex-col items-center

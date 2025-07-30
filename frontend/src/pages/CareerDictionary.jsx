@@ -36,8 +36,6 @@ function ImageAnalysisPage() {
 
   return (
     <div className="flex min-h-screen bg-[#fdf7fa] font-sans">
-      {/* ✅ 사이드바 */}
-      <Sidebar />
 
       {/* ✅ 본문 */}
       <main className="flex-1 p-10">
