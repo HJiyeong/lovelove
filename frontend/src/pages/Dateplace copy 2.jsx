@@ -1,10 +1,8 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import placesData from "../data/date_places.json";
-import { GoogleMap, Marker, OverlayView } from "@react-google-maps/api";
+import { GoogleMap, Marker, InfoWindow } from "@react-google-maps/api";
 import Sidebar from "../components/Sidebar";
-import Topbar3 from "../components/Topbar3";
-
 
 const SEARCH_KEYWORD_FILTERS = [
   "데이트 카페",
@@ -121,12 +119,11 @@ function Dateplace() {
       {/* 사이드바 */}
      <Sidebar />
 
-      <main className="flex-1 py-14 bg-gradient-to-br from-pink-50 to-rose-100 px-10 overflow-auto flex gap-6 relative items-start">
-        
-      <Topbar3 />
+      <main className="flex-1 py-14 bg-white px-10 overflow-auto flex gap-6 relative items-start">
+    
 
         <div className="w-3/5">
-          <h1 className="text-4xl font-bold mb-4 mt-10">
+          <h1 className="text-4xl font-bold mb-6">
           ❤️{" "}
           <span className="bg-gradient-to-r from-[#e057a5] to-[#b05a57] text-transparent bg-clip-text">
             데이트 장소 검색
@@ -186,7 +183,7 @@ function Dateplace() {
                   href={item.link || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-4 bg-white border border-pink-100 rounded-xl shadow hover:shadow-lg hover:scale-[1.01] transition"
+                  className="block p-4 bg-[#fbf2ee] border border-pink-100 rounded-xl shadow hover:shadow-lg hover:scale-[1.01] transition"
                 >
                   <div className="flex gap-4">
                     {item.image && (
@@ -219,7 +216,7 @@ function Dateplace() {
           </div>
         </div>
 
-      <div className="relative top-[70px] w-[360px] h-[600px] shrink-0 "  >
+      <div className="relative top-[100px] w-[360px] h-[600px] shrink-0 "  >
         {/* 📱 휴대폰 이미지 */}
         <img
           src="/phone.png"
@@ -243,7 +240,7 @@ function Dateplace() {
           position={m.position}
           icon={{
             url: getMarkerColor(m.category || ""),
-            scaledSize: new window.google.maps.Size(30, 30),
+            scaledSize: new window.google.maps.Size(40, 40),
           }}
           onClick={() => {
             setActiveMarker(m.id);
@@ -251,71 +248,32 @@ function Dateplace() {
           }}
         >
           {activeMarker === m.id && (
-<OverlayView
-  position={m.position}
-  mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
->
-  <div
-    style={{
-      width: "100px",
-      maxWidth: "90vw",
-      display: "flex",
-      flexDirection: "column",
-      background: "white",
-      padding: "8px",
-      borderRadius: "8px",
-      boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-      fontSize: "12px",
-      color: "#a88884",
-      lineHeight: "1.4",
-      whiteSpace: "normal",
-      wordBreak: "break-word",
-    }}
-  >
-    {m.image && (
-      <img
-        src={m.image}
-        alt={m.name}
-        style={{
-          width: "100%",
-          height: "80px",
-          objectFit: "cover",
-          borderRadius: "6px",
-          marginBottom: "6px",
-        }}
-      />
-    )}
-    <strong
-      style={{
-        display: "block",
-        marginBottom: "4px",
-      }}
-      dangerouslySetInnerHTML={{ __html: m.name }}
-    />
-    <p>{m.address}</p>
-
-    {/* ✅ 링크 버튼처럼 분리 */}
-    {m.raw?.link && (
-      <a
-        href={m.raw.link}
-        target="_blank"
-        rel="noopener noreferrer"
-        style={{
-          marginTop: "6px",
-          fontSize: "11px",
-          color: "#b05a57",
-          textDecoration: "underline",
-          alignSelf: "flex-end",
-        }}
-      >
-        자세히 보기 ↗
-      </a>
-    )}
-  </div>
-</OverlayView>
-
-)}
-
+            <InfoWindow   options={{ disableDefaultUI: true }}>
+              <div style={{ maxWidth: "100px", fontSize: "12px", lineHeight: "1.2",
+                        padding: 0,        
+                        margin: 0,
+                        }}>
+                {m.image && (
+                  <img
+                    src={m.image}
+                    alt={m.name}
+                    style={{
+                      width: "100%",
+                      height: "80px",
+                      objectFit: "cover",
+                      borderRadius: "6px",
+                      marginBottom: "6px",
+                    }}
+                  />
+                )}
+                <strong
+                  style={{ display: "block", marginBottom: "4px" }}
+                  dangerouslySetInnerHTML={{ __html: m.name }}
+                />
+                <p>{m.address}</p>
+              </div>
+            </InfoWindow>
+          )}
         </Marker>
       ))}
     </GoogleMap>

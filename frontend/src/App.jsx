@@ -4,28 +4,23 @@ import Milestone from "./pages/Milestone";
 import TestPage from "./pages/TestPage"; 
 import TestResult from './pages/TestResult';
 import TestIntro from './pages/Testintro';
-import PlacesMap from "./components/PlacesMap"; 
+// import PlacesMap from "./components/PlacesMap"; 
 import CareerDictionary from "./pages/CareerDictionary";
 import Dateplace from "./pages/Dateplace.jsx";
 import { LoadScript } from "@react-google-maps/api"; // 구글 맵 로드 지연 줄이기 위해
 
-
-import Analytics from "./pages/Analytics";
-import Chat from "./pages/Chat.jsx";
-import MyPageDetail from "./pages/MyPageDetail";
-import JobLinks from "./pages/JobLinks";
-import Diagnosis from "./pages/Diagnosis";
-import Activities from "./pages/Activities";
-
 import SearchPage from "./pages/SearchPage";
 import CalendarPage from "./pages/CalendarPage";
 
+import Chat from "./pages/Chat.jsx";
 
 
-
-import Grade from "./pages/Grade"; // 상단에 추가
+import MyPageDetail from "./pages/MyPageDetail";
 import Setting from "./pages/Setting" ;
 import Logout from "./pages/Logout" ;
+
+
+
 
 
 
@@ -39,25 +34,19 @@ function App() {
       <Route path="/test-result" element={<TestResult />} />
       <Route path="/testpage" element={<TestPage />} />
       <Route path="/dictionary" element={<CareerDictionary />} />
-      
-
+      <Route path="/milestone" element={<Milestone />} />
 
 
       <Route path="/settings" element={< Setting/>} />
       <Route path="/logout" element={< Logout/>} />
-      <Route path="/milestone" element={<Milestone />} />
     
-      <Route path="/analytics" element={<Analytics />} />
       <Route path="/chat" element={<Chat />} />
       <Route path="/mypage-detail" element={<MyPageDetail />} />
-      <Route path="/job-links" element={<JobLinks />} />
-      <Route path="/diagnosis" element={<Diagnosis />} />
-      <Route path="/activities" element={<Activities />} />
+
     
       <Route path="/search" element={<SearchPage />} />
       <Route path="/calendar" element={<CalendarPage />} />
-      <Route path="/grade" element={<Grade />} />
-      <Route path="/places" element={<PlacesMap />} />
+ 
       
       
 

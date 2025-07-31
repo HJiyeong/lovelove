@@ -5,6 +5,7 @@ import dayGridPlugin from "@fullcalendar/daygrid";
 import interactionPlugin from "@fullcalendar/interaction";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+import Topbar from "../components/Topbar";
 
 function CalendarPage() {
   const [events, setEvents] = useState([]);
@@ -71,32 +72,8 @@ function CalendarPage() {
       {/* 📅 메인 콘텐츠 */}
       <div className="flex-1 relative bg-gradient-to-br from-pink-50 to-rose-100 pt-24 px-6 pb-10">
         {/* 상단 바 */}
-        <header className="fixed top-0 left-64 right-0 h-16 px-8 grid grid-cols-[auto_1fr_auto] items-center bg-white/60 backdrop-blur-lg border-b border-white/20 shadow-[0_2px_8px_rgba(0,0,0,0.06)] rounded-bl-2xl z-50">
-          <h1 className="text-xl font-bold text-rose-500 whitespace-nowrap">
-            나의&nbsp;연애&nbsp;다이어리
-          </h1>
-          <nav className="flex items-center gap-6 text-sm font-medium justify-self-end">
-            {[
-              ["테스트", "/test"],
-              ["데이트 장소", "/dateplace"],
-              ["마일스톤", "/milestone"],
-            ].map(([label, path]) => (
-              <Link
-                key={label}
-                to={path}
-                className="relative text-gray-600 hover:text-pink-600 transition group"
-                dangerouslySetInnerHTML={{ __html: label }}
-              />
-            ))}
-            <Link
-              to="/chat"
-              aria-label="AI상담"
-              className="px-4 py-2 rounded-full bg-rose-500 text-white shadow hover:bg-rose-600 hover:-translate-y-0.5 active:translate-y-0 transition transform whitespace-nowrap"
-            >
-              💬 연애상담 챗봇
-            </Link>
-          </nav>
-        </header>
+        <Topbar/>
+        
 
         <div className="max-w-3xl mx-auto">
           <h1 className="text-3xl font-bold text-rose-600 mb-6">💗 나의 연애/썸 기록, 다이어리로 남기기</h1>

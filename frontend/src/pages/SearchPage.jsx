@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+import Topbar2 from "../components/Topbar2";
 
 function SearchPage() {
   const [data, setData] = useState([]);
@@ -23,7 +24,9 @@ function SearchPage() {
       <Sidebar />
 
       {/* Main Content */}
-      <main className="flex-1 bg-white py-20 px-10">
+      <main className="flex-1 relative bg-gradient-to-br from-pink-50 to-rose-100 pt-24 px-6 pb-10">
+        {/* Topbar */}
+        <Topbar2 />
         <div className="max-w-5xl mx-auto">
           <h1 className="text-3xl font-bold text-pink-600 mb-4">💗 연애 조언 콘텐츠 검색</h1>
           <p className="text-gray-600 mb-6">썸, 연애, 이별 등 키워드로 검색하고, 플랫폼과 주제로 필터링해보세요.</p>
@@ -67,7 +70,7 @@ function SearchPage() {
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-4 bg-pink-50 border border-pink-100 rounded-xl shadow hover:shadow-lg hover:scale-[1.01] transition"
+                  className="block p-4 bg-white border border-pink-100 rounded-xl shadow hover:shadow-lg hover:scale-[1.01] transition"
                 >
                   <div className="flex gap-4">
                     <img
