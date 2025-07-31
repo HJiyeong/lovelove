@@ -14,7 +14,8 @@ const menu = [
 /* ── 사이드바 컴포넌트 ──────────────────────────────── */
 export default function Sidebar() {
   return (
-    <aside className="w-64 bg-gradient-to-b from-[#ffd9e0] via-[#f5d5f3] to-[#d9e4ff] shadow-xl text-black flex flex-col rounded-tr-3xl rounded-br-3xl">
+    <aside className="w-64 h-screen bg-gradient-to-b from-[#ffd9e0] via-[#f5d5f3] to-[#d9e4ff] shadow-xl text-black flex flex-col rounded-tr-3xl rounded-br-3xl">
+
       {/* ─── 로고 & 태그라인 ─────────────────────────── */}
       <div className="px-6 pt-10">
         <div className="flex items-center gap-4 animate-fadeInOut">
