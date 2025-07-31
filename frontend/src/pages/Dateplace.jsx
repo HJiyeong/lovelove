@@ -121,13 +121,13 @@ function Dateplace() {
       {/* 사이드바 */}
      <Sidebar />
 
-      <main className="flex-1 py-14 bg-gradient-to-br from-pink-50 to-rose-100 px-10 overflow-auto flex gap-6 relative items-start">
+      <main className="flex-1 bg-gradient-to-br from-pink-50 to-rose-100 px-20 py-5 overflow-auto flex gap-6 relative items-start">
         
       <Topbar3 />
 
-        <div className="w-3/5">
-          <h1 className="text-4xl font-bold mb-4 mt-10">
-          ❤️{" "}
+        <div className="w-3/5 mt-8"> {/* ← 여백 조절 */}
+          <h1 className="text-3xl font-bold mb-4 mt-10">
+          💗{" "}
           <span className="bg-gradient-to-r from-[#e057a5] to-[#b05a57] text-transparent bg-clip-text">
             데이트 장소 검색
           </span>
@@ -219,7 +219,7 @@ function Dateplace() {
           </div>
         </div>
 
-      <div className="relative top-[70px] w-[360px] h-[600px] shrink-0 "  >
+      <div className="relative top-[110px] w-[360px] h-[600px] shrink-0 "  >
         {/* 📱 휴대폰 이미지 */}
         <img
           src="/phone.png"

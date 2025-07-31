@@ -2,7 +2,7 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ✅ Ownglyph 폰트 등록 */
+/* Ownglyph 폰트 등록 */
 @font-face {
   font-family: 'Ownglyph_ParkDaHyun';
   src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2411-3@1.0/Ownglyph_ParkDaHyun.woff2') format('woff2');
@@ -10,9 +10,28 @@
   font-style: normal;
 }
 
-/* ✅ 전역 폰트 설정 (Tailwind base layer) */
+/* 전역 폰트 설정 (Tailwind base layer) */
 @layer base {
   html {
     font-family: 'Ownglyph_ParkDaHyun', sans-serif;
   }
+}
+
+
+/* FullCalendar 버튼 색상 커스터마이징 */
+.fc .fc-button {
+  background-color: #f9cad4 !important;
+  border: none;
+  color: white !important;
+  font-weight: bold;
+  transition: background-color 0.2s ease;
+  border-radius: 0.5rem;
+}
+
+.fc .fc-button:hover {
+  background-color: #db8c9d !important; /* 조금 어두운 hover 색상 */
+}
+
+.fc .fc-button:focus {
+  box-shadow: 0 0 0 2px rgba(214, 109, 105, 0.4);
 }

@@ -2,12 +2,14 @@
 package com.jobscatch.careernavi.domain;
 
 import jakarta.persistence.*;
-import lombok.*;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 @Entity
-@Getter @Setter
+@Getter
+@Setter
 @NoArgsConstructor
-@AllArgsConstructor
 public class Event {
 
     @Id
@@ -15,5 +17,12 @@ public class Event {
     private Long id;
 
     private String date;
+
     private String title;
+
+    @Column(length = 1000)
+    private String description;
+
+    private String imageUrl;
 }
+
