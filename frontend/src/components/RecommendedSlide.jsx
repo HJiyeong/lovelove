@@ -46,18 +46,19 @@ function RecommendedSlide() {
   const current = recommendedData[index];
 
   return (
-    <div className="w-80 bg-white rounded-xl shadow-xl p-5 border border-pink-200 transition-all duration-500">
+    <div className="w-80 bg-white rounded-xl shadow-lg hover:shadow-xl hover:scale-105 p-5 mb-4 border border-[#fff3ed]  transition-all duration-500">
+
       <div className="flex items-center mb-2">
       
         <div>
           <p className="text-base text-gray-400">{current.type}</p>
-          <h3 className="text-xl font-bold text-pink-700">{current.title}</h3>
+          <h3 className="text-xl font-bold text-[#b05a57]">{current.title}</h3>
         </div>
       </div>
 
       {/* 킹받는 한마디 */}
       <p className="text-sm text-gray-600 mb-1">
-        <span className="font-semibold text-pink-600">큐피봇</span>의 도발 한마디!
+        <span className="font-semibold text-[#d66d69]">큐피봇</span>의 한마디!
       </p>
 
       <p className="text-lg text-gray-500 mb-3">
@@ -73,7 +74,7 @@ function RecommendedSlide() {
         {recommendedData.map((_, i) => (
           <div
             key={i}
-            className={`w-2 h-2 rounded-full ${i === index ? "bg-pink-500" : "bg-gray-300"}`}
+            className={`w-2 h-2 rounded-full ${i === index ? "bg-[#d66d69]" : "bg-gray-300"}`}
           />
         ))}
       </div>
