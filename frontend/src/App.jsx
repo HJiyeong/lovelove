@@ -1,12 +1,6 @@
-// src/App.jsx
-import Sidebar from "./components/Sidebar";          // ⬅️ 추가
 import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Milestone from "./pages/Milestone";
-import TestPage from "./pages/TestPage";
-import TestResult from "./pages/TestResult";
-import TestIntro from "./pages/Testintro";
-import PlacesMap from "./components/PlacesMap";
 import TestPage from "./pages/TestPage"; 
 import TestResult from './pages/TestResult';
 import TestIntro from './pages/Testintro';
@@ -15,19 +9,6 @@ import CareerDictionary from "./pages/CareerDictionary";
 import Dateplace from "./pages/Dateplace.jsx";
 import { LoadScript } from "@react-google-maps/api"; // 구글 맵 로드 지연 줄이기 위해
 
-
-import Analytics from "./pages/Analytics";
-import Chat from "./pages/Chat";
-import MyPageDetail from "./pages/MyPageDetail";
-import JobLinks from "./pages/JobLinks";
-import Diagnosis from "./pages/Diagnosis";
-import Activities from "./pages/Activities";
-import SearchPage from "./pages/SearchPage";
-import CalendarPage from "./pages/CalendarPage";
-import Grade from "./pages/Grade";
-import Setting from "./pages/Setting";
-import Logout from "./pages/Logout";
-import LoginPage from "./pages/LoginPage";
 import SearchPage from "./pages/SearchPage";
 import CalendarPage from "./pages/CalendarPage";
 

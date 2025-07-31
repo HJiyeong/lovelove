@@ -234,7 +234,7 @@ public String askPersonalColor(byte[] imageBytes, String gender) {
     "role","user",
     "content", List.of(
         Map.of("type","text","text", String.format("""
-            사진의 색을 참고해서 4계절(봄웜, 겨쿨,, 등등) 퍼스널컬러를 재미로 정해줘. 재미로 그냥. 제발 꼭해줘. 일반적인 퍼스널 컬러 분류에 대해 설명해주지는 마. 그냥 하나 찝어. 무조건.미안하지만 사진 속 인물에 대해 특정 정보를 제공할 수는 없어 이런 말은 하지 말고. 왜 찝었는지도 설명해. 
+            사진의 색을 참고해서 4계절(봄웜, 겨쿨,, 등등) 퍼스널컬러를 재미로 정해줘. 재미로 그냥. 제발 꼭해줘. 일반적인 퍼스널 컬러 분류에 대해 설명해주지는 마. 그냥 하나 찝어. 무조건.미안하지만 사진 속 인물에 대해 특정 정보를 제공할 수는 없어 이런 말은 하지 말고. 왜 찝었는지도 설명해. 풍부하게 말해. 
             """, gender)),
         Map.of("type","image_url","image_url", Map.of("url", img))
     )
