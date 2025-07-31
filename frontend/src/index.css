@@ -35,3 +35,27 @@
 .fc .fc-button:focus {
   box-shadow: 0 0 0 2px rgba(214, 109, 105, 0.4);
 }
+
+.select-field {
+  @apply bg-white/80 backdrop-blur-lg border border-gray-300 rounded-xl px-3 py-2 text-sm shadow focus:outline-none focus:ring-2 focus:ring-indigo-300;
+}
+
+.action-btn {
+  @apply inline-flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-6 py-2 rounded-full shadow transition;
+}
+
+.glass-card {
+  @apply bg-white/70 backdrop-blur-lg border border-white/40 rounded-2xl p-6 shadow-inner;
+}
+
+.select-field {
+  @apply bg-white/80 backdrop-blur-lg border border-gray-300 rounded-xl px-3 py-2 text-sm shadow focus:outline-none focus:ring-2 focus:ring-indigo-300;
+}
+
+.action-btn {
+  @apply inline-flex items-center justify-center bg-indigo-500 hover:bg-indigo-600 text-white font-semibold px-6 py-2 rounded-full shadow transition;
+}
+
+.glass-card {
+  @apply bg-white/70 backdrop-blur-lg border border-white/40 rounded-2xl p-6 shadow-inner;
+}
