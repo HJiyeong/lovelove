@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useMemo, useRef } from "react";
 import { Link } from "react-router-dom";
 import placesData from "../data/date_places.json";
-import { GoogleMap, Marker, InfoWindow } from "@react-google-maps/api";
+import { GoogleMap, Marker, OverlayView } from "@react-google-maps/api";
 import Sidebar from "../components/Sidebar";
+import Topbar3 from "../components/Topbar3";
+
 
 const SEARCH_KEYWORD_FILTERS = [
   "데이트 카페",
@@ -115,15 +117,21 @@ function Dateplace() {
 }, [selectedCity, selectedDistrict, markers]);
 
   return (
-    <div className="flex min-h-screen font-sans">
+    <div className="flex min-h-screen bg-[#f9fafb] font-sans">
       {/* 사이드바 */}
      <Sidebar />
 
-      <main className="flex-1 py-20 bg-white px-10 overflow-auto flex gap-6 relative items-start">
-    
+      <main className="flex-1 bg-gradient-to-br from-pink-50 to-rose-100 px-20 py-5 overflow-auto flex gap-6 relative items-start">
+        
+      <Topbar3 />
 
-        <div className="w-3/5">
-          <h1 className="text-3xl font-bold text-pink-600 mb-6">💗 데이트 장소 검색</h1>
+        <div className="w-3/5 mt-8"> {/* ← 여백 조절 */}
+          <h1 className="text-3xl font-bold mb-4 mt-10">
+          💗{" "}
+          <span className="bg-gradient-to-r from-[#e057a5] to-[#b05a57] text-transparent bg-clip-text">
+            데이트 장소 검색
+          </span>
+        </h1>
 
           <div className="flex flex-wrap gap-4 mb-6">
             <select
@@ -178,7 +186,7 @@ function Dateplace() {
                   href={item.link || "#"}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-4 bg-pink-50 border border-pink-100 rounded-xl shadow hover:shadow-lg hover:scale-[1.01] transition"
+                  className="block p-4 bg-white border border-pink-100 rounded-xl shadow hover:shadow-lg hover:scale-[1.01] transition"
                 >
                   <div className="flex gap-4">
                     {item.image && (
@@ -191,7 +199,7 @@ function Dateplace() {
                     )}
                     <div className="flex flex-col justify-between">
                       <h3
-                        className="text-lg font-bold text-pink-700"
+                        className="text-lg font-bold text-[#d66d69]"
                         dangerouslySetInnerHTML={{ __html: item.name }}
                       />
                       <p className="text-sm text-gray-700 mt-1 line-clamp-2">
@@ -211,75 +219,129 @@ function Dateplace() {
           </div>
         </div>
 
-        <div 
-        className="w-2/5 rounded-lg overflow-hidden shadow-lg "
-          style={{ marginTop: "150px"
-           }} 
-          >
-             <div className="absolute top-4 right-4 bg-white shadow-lg rounded-xl p-3 text-sm z-10 space-y-1">
-          <div className="flex items-center gap-2">
-            <img src="http://maps.google.com/mapfiles/ms/icons/pink-dot.png" className="w-4 h-4" />
-            <span>카페</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <img src="http://maps.google.com/mapfiles/ms/icons/orange-dot.png" className="w-4 h-4" />
-            <span>맛집</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <img src="http://maps.google.com/mapfiles/ms/icons/purple-dot.png" className="w-4 h-4" />
-            <span>술집</span>
-          </div>
-          <div className="flex items-center gap-2">
-            <img src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png" className="w-4 h-4" />
-            <span>칵테일바</span>
-          </div>
-        </div>
-       
-          <GoogleMap
-          
-            mapContainerStyle={mapContainerStyle}
-            center={initialCenter}
-            zoom={6.5}
-            onLoad={(map) => (mapRef.current = map)}
-          >
-            {markers.map((m) => (
-              <Marker
-                key={m.id}
-                position={m.position}
-                icon={{
-                  url: getMarkerColor(m.category || ""),
-                  scaledSize: new window.google.maps.Size(40, 40),
-                }}
-                onClick={() => {
-                  setActiveMarker(m.id);
-                  mapRef.current?.panTo(m.position);
-                }}
-              >
-                {activeMarker === m.id && (
-                  <InfoWindow onCloseClick={() => setActiveMarker(null)}>
-                    <div style={{ maxWidth: "220px" }}>
-                      {m.image && (
-                        <img
-                          src={m.image}
-                          alt={m.name}
-                          style={{
-                            width: "100%",
-                            height: "120px",
-                            objectFit: "cover",
-                            borderRadius: "8px",
-                            marginBottom: "8px",
-                          }}
-                        />
-                      )}
-                      <strong dangerouslySetInnerHTML={{ __html: m.name }} />
-                      <p>{m.address}</p>
-                    </div>
-                  </InfoWindow>
-                )}
-              </Marker>
-            ))}
-          </GoogleMap>
-        </div>
+      <div className="relative top-[110px] w-[360px] h-[600px] shrink-0 "  >
+        {/* 📱 휴대폰 이미지 */}
+        <img
+          src="/phone.png"
+          alt="phone frame"
+          className="w-full h-full absolute z-20 pointer-events-none"
+        />
+
+  {/* 📍 지도 위치 조절 */}
+   <div className="absolute top-[100px] left-[55px] right-[0px] bottom-[100px]">
+    {/* 🗺️ 지도 자체 */}
+    <GoogleMap
+      mapContainerStyle={{ width: "80%", height: "90%" }}
+      center={initialCenter}
+      zoom={5.5}
+      onLoad={(map) => (mapRef.current = map)}
+       onClick={() => setActiveMarker(null)}// 지도 클릭시 닫힘
+    >
+      {markers.map((m) => (
+        <Marker
+          key={m.id}
+          position={m.position}
+          icon={{
+            url: getMarkerColor(m.category || ""),
+            scaledSize: new window.google.maps.Size(30, 30),
+          }}
+          onClick={() => {
+            setActiveMarker(m.id);
+            mapRef.current?.panTo(m.position);
+          }}
+        >
+          {activeMarker === m.id && (
+<OverlayView
+  position={m.position}
+  mapPaneName={OverlayView.OVERLAY_MOUSE_TARGET}
+>
+  <div
+    style={{
+      width: "100px",
+      maxWidth: "90vw",
+      display: "flex",
+      flexDirection: "column",
+      background: "white",
+      padding: "8px",
+      borderRadius: "8px",
+      boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
+      fontSize: "12px",
+      color: "#a88884",
+      lineHeight: "1.4",
+      whiteSpace: "normal",
+      wordBreak: "break-word",
+    }}
+  >
+    {m.image && (
+      <img
+        src={m.image}
+        alt={m.name}
+        style={{
+          width: "100%",
+          height: "80px",
+          objectFit: "cover",
+          borderRadius: "6px",
+          marginBottom: "6px",
+        }}
+      />
+    )}
+    <strong
+      style={{
+        display: "block",
+        marginBottom: "4px",
+      }}
+      dangerouslySetInnerHTML={{ __html: m.name }}
+    />
+    <p>{m.address}</p>
+
+    {/* ✅ 링크 버튼처럼 분리 */}
+    {m.raw?.link && (
+      <a
+        href={m.raw.link}
+        target="_blank"
+        rel="noopener noreferrer"
+        style={{
+          marginTop: "6px",
+          fontSize: "11px",
+          color: "#b05a57",
+          textDecoration: "underline",
+          alignSelf: "flex-end",
+        }}
+      >
+        자세히 보기 ↗
+      </a>
+    )}
+  </div>
+</OverlayView>
+
+)}
+
+        </Marker>
+      ))}
+    </GoogleMap>
+
+    {/* 📌 마커 범례 */}
+    <div className="absolute top-2 right-15 bg-white bg-opacity-90 shadow-lg rounded-xl p-2 text-[11px] z-10 space-y-1">
+      <div className="flex items-center gap-1">
+        <img src="http://maps.google.com/mapfiles/ms/icons/pink-dot.png" className="w-3 h-3" />
+        <span>카페</span>
+      </div>
+      <div className="flex items-center gap-1">
+        <img src="http://maps.google.com/mapfiles/ms/icons/orange-dot.png" className="w-3 h-3" />
+        <span>맛집</span>
+      </div>
+      <div className="flex items-center gap-1">
+        <img src="http://maps.google.com/mapfiles/ms/icons/purple-dot.png" className="w-3 h-3" />
+        <span>술집</span>
+      </div>
+      <div className="flex items-center gap-1">
+        <img src="http://maps.google.com/mapfiles/ms/icons/blue-dot.png" className="w-3 h-3" />
+        <span>칵테일바</span>
+      </div>
+    </div>
+  </div>
+</div>
+
       </main>
     </div>
   );

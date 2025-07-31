@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Sidebar from "../components/Sidebar";
+import Topbar2 from "../components/Topbar2";
 
 function SearchPage() {
   const [data, setData] = useState([]);
@@ -23,9 +24,16 @@ function SearchPage() {
       <Sidebar />
 
       {/* Main Content */}
-      <main className="flex-1 bg-white py-20 px-10">
+      <main className="flex-1 relative bg-gradient-to-br from-pink-50 to-rose-100 pt-24 px-32 pb-10">
+        {/* Topbar */}
+        <Topbar2 />
         <div className="max-w-5xl mx-auto">
-          <h1 className="text-3xl font-bold text-pink-600 mb-4">💗 연애 조언 콘텐츠 검색</h1>
+          <h1 className="text-3xl font-bold mb-4">
+          💗{" "}
+          <span className="bg-gradient-to-r from-[#e057a5] to-[#b05a57] text-transparent bg-clip-text">
+            연애 조언 컨텐츠 검색
+          </span>
+        </h1>
           <p className="text-gray-600 mb-6">썸, 연애, 이별 등 키워드로 검색하고, 플랫폼과 주제로 필터링해보세요.</p>
 
           {/* 검색창 + 필터 */}
@@ -59,7 +67,7 @@ function SearchPage() {
           </div>
 
           {/* 결과 리스트 */}
-          <div className="space-y-6">
+          <div className="space-y-6 max-h-[65vh] overflow-auto pr-2">
             {data.length > 0 ? (
               data.map((item, idx) => (
                 <a
@@ -67,7 +75,7 @@ function SearchPage() {
                   href={item.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block p-4 bg-pink-50 border border-pink-100 rounded-xl shadow hover:shadow-lg hover:scale-[1.01] transition"
+                  className="block p-4 bg-white border border-pink-100 rounded-xl shadow hover:shadow-lg hover:scale-[1.01] transition"
                 >
                   <div className="flex gap-4">
                     <img
@@ -76,14 +84,14 @@ function SearchPage() {
                       className="w-24 h-24 rounded-lg object-cover flex-shrink-0"
                     />
                     <div>
-                      <h3 className="text-lg font-bold text-pink-700">{item.title}</h3>
+                      <h3 className="text-lg font-bold text-[#d66d69]">{item.title}</h3>
                       <p className="text-sm text-gray-700 mt-1 line-clamp-2">{item.description}</p>
                       <p className="text-xs text-gray-500 mt-2">출처: {item.platform}</p>
                       <div className="mt-1 flex gap-2 flex-wrap">
                         {item.tags.map((tag, i) => (
                           <span
                             key={i}
-                            className="text-xs px-2 py-1 bg-white border border-pink-200 text-pink-500 rounded-full"
+                            className="text-xs px-2 py-1 bg-white border border-gray-200 text-gray-500 rounded-full"
                           >
                             #{tag}
                           </span>
