@@ -106,7 +106,6 @@ function CalendarPage() {
 
   return (
     <div className="flex min-h-screen font-sans">
-      <Sidebar />
       <div className="flex-1 relative bg-gradient-to-br from-pink-50 to-rose-100 px-20 py-24 overflow-auto flex gap-6 ">
         <Topbar />
 

@@ -33,7 +33,6 @@ function Home() {
 
   return (
     <div className="flex min-h-screen bg-[#f9fafb] font-sans relative">
-      <Sidebar />
       <main className="flex-1 p-10">
         {/* Hero Section */}
         <section className="relative mb-16 rounded-3xl bg-gradient-to-br from-[#ffeded] to-[#fff3ed] p-10 shadow-xl">

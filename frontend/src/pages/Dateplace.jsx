@@ -119,7 +119,6 @@ function Dateplace() {
   return (
     <div className="flex min-h-screen bg-[#f9fafb] font-sans">
       {/* 사이드바 */}
-     <Sidebar />
 
       <main className="flex-1 bg-gradient-to-br from-pink-50 to-rose-100 px-20 py-5 overflow-auto flex gap-6 relative items-start">
         

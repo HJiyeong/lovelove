@@ -21,7 +21,6 @@ function SearchPage() {
   return (
     <div className="flex min-h-screen font-sans">
       {/* Sidebar */}
-      <Sidebar />
 
       {/* Main Content */}
       <main className="flex-1 relative bg-gradient-to-br from-pink-50 to-rose-100 pt-24 px-32 pb-10">
